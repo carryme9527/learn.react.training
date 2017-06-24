@@ -1,6 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-require('./index.css');
+// require('./index.css');
 
 // state
 // lifecycle event
@@ -33,10 +33,12 @@ class Badge extends React.Component {
 }
 
 ReactDOM.render(
-  <Badge
-    name='Tyler McGinnis'
-    username='tylermcginnis'
-    img='https://avatars0.githubusercontent.com/u/2933430?v=3&s=460'
-  />,
+  <div>
+    <Badge
+      name='Tyler McGinnis'
+      username='tylermcginnis'
+      img='https://avatars0.githubusercontent.com/u/2933430?v=3&s=460'
+    />
+  </div>,
   document.getElementById('app')
 );
