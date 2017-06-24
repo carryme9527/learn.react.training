@@ -1,5 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
+var PropTypes = require('prop-types');
 // require('./index.css');
 
 // state
@@ -53,6 +54,10 @@ class Users extends React.Component {
   }
 }
 
+Users.propTypes = {
+  list: PropTypes.array.isRequired
+}
+
 class Badge extends React.Component {
   render() {
     return (
@@ -67,6 +72,12 @@ class Badge extends React.Component {
       </div>
     )
   }
+}
+
+Badge.propTypes = {
+  img: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired
 }
 
 ReactDOM.render(
