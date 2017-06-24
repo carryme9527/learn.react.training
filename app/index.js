@@ -55,7 +55,11 @@ class Users extends React.Component {
 }
 
 Users.propTypes = {
-  list: PropTypes.array.isRequired
+  // list: PropTypes.arrayOf(PropTypes.object)
+  list: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    friend: PropTypes.bool.isRequired
+  }))
 }
 
 class Badge extends React.Component {
