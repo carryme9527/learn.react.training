@@ -41,7 +41,7 @@ function SelectLanguage(props) {
 
 SelectLanguage.propTypes = {
   selectedLanguage: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
+  onSelect: PropTypes.func.isRequired,
 }
 
 module.exports = SelectLanguage;
