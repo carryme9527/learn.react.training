@@ -1,5 +1,7 @@
 var React = require('react');
 var SelectLanguage = require('./SelectLanguage');
+var RepoGrid = require('./RepoGrid');
+var api = require('../utils/api');
 
 class Popular extends React.Component {
   constructor(props) {
@@ -14,9 +16,23 @@ class Popular extends React.Component {
   updateLanguage(lang) {
     this.setState(function () {
       return {
-        selectedLanguage: lang
+        selectedLanguage: lang,
+        repos: null
       }
     });
+
+    api.fetchPopularRepos(lang)
+      .then(function (repos) {
+        this.setState(function () {
+          return {
+            repos: repos
+          }
+        });
+      }.bind(this));
+  }
+
+  componentDidMount() {
+    this.updateLanguage(this.state.selectedLanguage);
   }
 
   render() {
@@ -26,6 +42,9 @@ class Popular extends React.Component {
           selectedLanguage={this.state.selectedLanguage}
           onSelect={this.updateLanguage}
         />
+        {!this.state.repos
+          ? <p>LOADING</p>
+          : <RepoGrid repos={this.state.repos} />}
       </div>
     )
   }
