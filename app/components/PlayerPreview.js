@@ -12,11 +12,7 @@ class PlayerPreview extends React.Component {
             alt={'Avatar for ' + this.props.username}
           />
           <h2 className='username'>@{this.props.username}</h2>
-          <button
-            className='reset'
-            onClick={this.props.onReset.bind(null, this.props.id)}>
-              Reset
-          </button>
+          {this.props.children}
         </div>
       </div>
     )
@@ -25,9 +21,7 @@ class PlayerPreview extends React.Component {
 
 PlayerPreview.propTypes = {
   avatar: PropTypes.string.isRequired,
-  username: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
-  onReset: PropTypes.func.isRequired
+  username: PropTypes.string.isRequired
 }
 
 module.exports = PlayerPreview;
